@@ -10,7 +10,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>org.rrat</groupId>
-    <artifactId>Hackday-Backend</artifactId>
+    <artifactId>hackday-backend</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
