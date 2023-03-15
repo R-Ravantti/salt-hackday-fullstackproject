@@ -1,3 +1,4 @@
+import {GET} from './api/route'
 
 export default function Home() {
   return (

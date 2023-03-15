@@ -1,0 +1,1 @@
+INSERT INTO salt_monsters(monster_id) VALUES (151);
