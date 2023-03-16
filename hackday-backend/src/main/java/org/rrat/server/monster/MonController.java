@@ -39,7 +39,12 @@ public class MonController {
 
     @PostMapping(path = "compatible")
     public ResponseEntity<PairResponseDTO> checkPairCompatibility(@RequestBody PairRequestDTO req) {
-        return ResponseEntity.ok(new PairResponseDTO(service.checkPair(req.first(), req.second())));
+        try {
+            return ResponseEntity.ok(new PairResponseDTO(service.checkPair(req.first(), req.second())));
+
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().build();
+        }
     }
 
     @PostMapping()
@@ -48,14 +53,18 @@ public class MonController {
             Monster addedMonster = service.saveMonster(MonConverter.convertFromDto(monsterDTO));
             return ResponseEntity.created(URI.create("/api/monsters/" + monsterDTO.monsterId()))
                     .body(MonConverter.convertToDto(addedMonster));
-        } catch (IllegalArgumentException e) {
+        } catch (Exception e) {
             return ResponseEntity.badRequest().build();
         }
     }
 
     @DeleteMapping(path = "{id}")
     public ResponseEntity<MonsterDTO> deleteMonster(@PathVariable int id) {
-        service.deleteMonster(id);
-        return ResponseEntity.noContent().build();
+        try {
+            service.deleteMonster(id);
+            return ResponseEntity.noContent().build();
+        } catch (Exception e) {
+            return ResponseEntity.noContent().build();
+        }
     }
 }

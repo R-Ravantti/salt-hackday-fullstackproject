@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import React, {useState, useEffect} from 'react';
+import './style.css';
 
 type MonsterDTO = {
   monster_id: number;
@@ -52,19 +53,24 @@ export default function Home() {
     getMonsters(setMonsters);
   })
   return (
-    <main>
-      <Link href={"/admin"}>Admin</Link>
+    <main className="mainpage">
+      <header className="header">
+      <Link className="link" href={"/admin"}>Admin</Link>
+      </header>
+      <h3>Check compatibility</h3>
       <form className="monsterform" id="monsterform" onSubmit={(e) => {checkPair(e, setPairInfo)}}>
         <select className="monsterselect" id="monsterselect1" name="first">
           {monsters.map((monster) => {
             return (<option key={monster.monster_id} value={monster.monster_id}>{monster.monster_name}</option>)
           })}
         </select>
+        <hr />
         <select className="monsterselect" id="monsterselect2" name="second">
           {monsters.map((monster) => {
             return (<option key={monster.monster_id} value={monster.monster_id}>{monster.monster_name}</option>)
           })}
         </select>
+        <hr />
         <button type="submit">Submit</button>
       </form>
       <p>{pairInfo}</p>
