@@ -51,7 +51,7 @@ export default function Home() {
   const [pairInfo, setPairInfo] = useState<String>('Hello, World!');
   useEffect(() => {
     getMonsters(setMonsters);
-  })
+  }, [])
   return (
     <main className="mainpage">
       <header className="header">

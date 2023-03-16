@@ -1,0 +1,10 @@
+org/rrat/server/dto/PairResponseDTO.class
+org/rrat/server/monster/MonConverter.class
+org/rrat/server/monster/MonService.class
+org/rrat/server/monster/model/MonsterDbRepository.class
+org/rrat/server/dto/PairRequestDTO.class
+org/rrat/server/monster/model/Monster.class
+org/rrat/server/HackdayServer.class
+org/rrat/server/monster/model/MonRepository.class
+org/rrat/server/dto/MonsterDTO.class
+org/rrat/server/monster/MonController.class
