@@ -11,6 +11,7 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/api/monsters")
 public class MonController {
     private final MonService service;
@@ -36,7 +37,7 @@ public class MonController {
         }
     }
 
-    @GetMapping(path = "compatible")
+    @PostMapping(path = "compatible")
     public ResponseEntity<PairResponseDTO> checkPairCompatibility(@RequestBody PairRequestDTO req) {
         return ResponseEntity.ok(new PairResponseDTO(service.checkPair(req.first(), req.second())));
     }

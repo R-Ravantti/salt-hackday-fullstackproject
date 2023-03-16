@@ -22,15 +22,15 @@ public class MonService {
     public Monster getMonster(int id) { return repo.getMonsterById(id); }
 
     public boolean checkPair(int id1, int id2) {
-        if(id1 == id2) {
-            return true;
-        }
         Monster monster1 = repo.getMonsterById(id1);
         Monster monster2 = repo.getMonsterById(id2);
         String[] groups1 = {monster1.getMonsterGroup(), monster1.getMonsterSecondGroup()};
         String[] groups2 = {monster2.getMonsterGroup(), monster2.getMonsterSecondGroup()};
         if(groups1[0].equals("Impossible") || groups2[0].equals("Impossible")) {
             return false;
+        }
+        if(id1 == id2) {
+            return true;
         }
         for (String s1 : groups1) {
             for (String s2 : groups2) {
